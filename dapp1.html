@@ -1,10 +1,9 @@
-
 <html>
 <head>
 <title> First dApp </title>
 </head>
 <body>
-<h1> welcome champ of DCRUST </h1>
+<h1> Welcome-champ of DCRUST </h1>
  
 	<div>
 		Balance : <input type="text" id="amount">
@@ -29,8 +28,8 @@
 		{
 			var address = "0x1B1Aa051f0E991c9B42f8378283A86a4a3e7FBed";
  
-			var abi =  
- 	[
+			var abi =  [
+	
 	{
 		"constant": false,
 		"inputs": [
@@ -80,16 +79,21 @@
 		"type": "function"
 	}
 
- ];
+];
  
 			web3=new Web3(web3.currentProvider);
+			web1 = new Web3(window.ethereum);
+ 
+            window.ethereum.enable();
 			contract =  new web3.eth.Contract (abi, address );
  
 			contract.methods.getBalance().call().then(function(bal)
 			{
 				$('#balance').html(bal);
 			})
- 		
+ 
+		})
+ 
 		$('#deposit').click(function()
 		{
 			var amt =0;
@@ -123,6 +127,7 @@
 			})
  
 		})
+ 
 	</script>
  
 <hr>
